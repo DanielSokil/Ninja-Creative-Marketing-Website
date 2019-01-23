@@ -1,46 +1,117 @@
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Best SEO Company - SEO That Actually Works | {brandName}</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<header class="Grid brand-bg-blue">
+	<div id="one" class="Cell {browserWidth <= 800 ? '-12of12' : '-6of12'}">
+		<h2>Content Marketing</h2>
+		<p>Highly experienced content writer with fluency in both British and American English.</p>
+	</div>
+	<div id="two" class="Cell {browserWidth <= 800 ? '-12of12' : '-6of12'}">
+		<h2>Advanced Analytics</h2>
+		<p>We use all necessary tools for better research and tracking progress properly.</p>
+	</div>
+	<div id="three" class="Cell {browserWidth <= 800 ? '-12of12' : '-6of12'}">
+		<h2>PPC Management</h2>
+		<p>Get maximum outreach at minimum cost. we will not let you waste a single penny.</p>
+	</div>
+	<div id="four" class="Cell {browserWidth <= 800 ? '-12of12' : '-6of12'}">
+		<h2>Social Media Services</h2>
+		<p>Creating relevant and quality threads on social media. We handle all major social media sites.</p>
+	</div>
+</header>
 
-<figure>
-	<img alt='Borat' src='great-success.png'>
-	<figcaption>HIGH FIVE!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (routes/index.html) to test live reloading.</strong></p>
+<section>
+	<h1>Best SEO Company- No Fake Promises</h1>
+	<p><b>{brandName}, the most trusted SEO Company</b> for growing your business online. We provide creative, innovative and
+		state of the art internet marketing for your business. Best quality work is our first and foremost priority. Our topmost
+		digital marketing strategy ensure search engine rankings for building better and clean online presence. As of right now,
+		we have 11 team members here in Dhaka, Bangladesh. There are many internet marketing firms who still offer packages for
+		ranking 5 or 10 exact match keywords. This is completely wrong and misleading.</p>
+	<p>This is 2019 and we can not just build some backlinks here and there using targeted anchor text and gets it ranked. You
+		can hope and pray but it surely won’t work in any circumstances. Target will always be all relevant key phrases to the
+		products or services. Search Engine Optimization (SEO) should be purely ROI (Return on Investment) focused not just rankings.</p>
+</section>
 
 <style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
+	header {
+	  height: 90vh;
+	  border-left: 1px solid red;
+	  border-right: 1px solid red;
+	  scroll-behavior: smooth;
+	  text-rendering: optimizeSpeed;
 	}
 
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
+	header div {
+	  position: relative;
+	  border-bottom: 1px solid red;
+	  background-size: contain;
+	  background-repeat: no-repeat;
 	}
 
-	figure {
-		margin: 0 0 1em 0;
+	header p {
+	  margin: 0;
+	  padding: 0em 0.6em 0.2em 0.6em;
+	  position: absolute;
+	  bottom: 0;
+	  left: 0;
+	  color: #fff;
 	}
 
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
+	@media (min-width: 800px) {
+	  header p {
+	    max-width: 70%;
+	  }
 	}
 
-	p {
-		margin: 1em auto;
+	header h2 {
+	  margin: 0;
+	  padding: 0.4em 0.4em 0 0.4em;
+	  color: #e0ebeb;
+	  /* background: #265973; */
+	  text-shadow: 1px 1px 0 #000;
+	  color: #e0ebeb;
+	  /* background: #265973; */
+	  /* background: linear-gradient(180deg, rgba(38, 89, 115, 1), rgba(38, 89, 115, 0.5)); */
 	}
 
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
+	#one {
+	  background-image: linear-gradient(
+	      rgba(38, 89, 115, 0.4),
+	      rgba(38, 89, 115, 1)
+	    ),
+			url("../images/content-marketing.png");
+			background-position: 80%;
+	}
+
+	#two {
+	  background-image: linear-gradient(
+	      rgba(38, 89, 115, 0.4),
+	      rgba(38, 89, 115, 1)
+	    ),
+			url("../images/advanced-analytics.png");
+			background-position: 60%;
+	}
+
+	#three {
+	  background-image: linear-gradient(
+	      rgba(38, 89, 115, 0.4),
+	      rgba(38, 89, 115, 1)
+	    ),
+			url("../images/ppc-management.png");
+			background-position: 60%;
+	}
+
+	#four {
+	  background-image: linear-gradient(
+	      rgba(38, 89, 115, 0.4),
+	      rgba(38, 89, 115, 1)
+	    ),
+			url("../images/social-media-services.png");
+			background-position: 100%;
 	}
 </style>
+
+<script>
+	export default {};
+</script>

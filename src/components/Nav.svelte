@@ -1,56 +1,79 @@
-<nav>
-	<ul>
-		<li><a class='{segment === undefined ? "selected" : ""}' href='.'>home</a></li>
-		<li><a class='{segment === "about" ? "selected" : ""}' href='about'>about</a></li>
+<nav class="Grid -center -middle {browserWidth <= 800 ? 'mobile' : ''}">
+	<div class="Cell {browserWidth <= 800 ? '-fill' : '-3of12'} logo">
+		<a href=".">
+			<img src="images/logo.jpg" alt="">
+		</a>
+	</div>
 
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li><a rel=prefetch class='{segment === "blog" ? "selected" : ""}' href='blog'>blog</a></li>
+	<ul class="Cell {browserWidth <= 800 ? '-fill' : '-3of12'}">
+		<li><a class='{segment === undefined ? "selected" : ""} brand-color-blue' href='.'>Home</a></li>
+		<li><a rel=prefetch class='{segment === "blog" ? "selected" : ""} brand-color-blue' href='blog'>Blog</a></li>
+		<li><a class='{segment === "about" ? "selected" : ""} brand-color-blue' href='about'>Clients</a></li>
+		<li><a class='{segment === "faq" ? "selected" : ""} brand-color-blue' href='faq'>Faq</a></li>
 	</ul>
 </nav>
 
 <style>
 	nav {
-		border-bottom: 1px solid rgba(170,30,30,0.1);
+	  /* border-bottom: 1px solid rgba(114, 135, 155, 1); */
+	  border-left: 1px solid red;
+	  border-right: 1px solid red;
 		font-weight: 300;
-		padding: 0 1em;
+		z-index: 100;
+	}
+
+	.mobile {
+	  position: sticky;
+	  top: 0;
+	  background: white;
 	}
 
 	ul {
-		margin: 0;
-		padding: 0;
+	  margin: 0;
+	  padding: 0;
 	}
 
 	/* clearfix */
 	ul::after {
-		content: '';
-		display: block;
-		clear: both;
+	  content: "";
+	  display: block;
+	  clear: both;
 	}
 
 	li {
-		display: block;
-		float: left;
+	  display: block;
+	  float: left;
 	}
 
 	.selected {
-		position: relative;
-		display: inline-block;
+	  position: relative;
+	  display: inline-block;
 	}
 
 	.selected::after {
-		position: absolute;
-		content: '';
-		width: calc(100% - 1em);
-		height: 2px;
-		background-color: rgb(170,30,30);
-		display: block;
-		bottom: -1px;
+	  position: absolute;
+	  content: "";
+	  width: calc(100% - 1em);
+	  height: 2px;
+	  background-color: rgba(114, 135, 155, 1);
+	  display: block;
+	  bottom: -1px;
+	  border-left: 5px solid red;
+	  border-right: 5px solid red;
 	}
 
 	a {
-		text-decoration: none;
-		padding: 1em 0.5em;
-		display: block;
+	  text-decoration: none;
+	  padding: 0.4em 0.6em;
+	  display: block;
+	  font-weight: 700;
+	}
+
+	.logo {
+	  cursor: pointer;
+	}
+
+	.logo img {
+	  width: 140px;
 	}
 </style>

@@ -1,24 +1,30 @@
-<Nav segment={child.segment}/>
+<Nav browserWidth={browserWidth} segment={child.segment} />
 
 <main>
-	<svelte:component this={child.component} {...child.props}/>
+	<svelte:component browserWidth={browserWidth} brandName={brandName} this={child.component} {...child.props} />
 </main>
 
-<style>
-	main {
-		position: relative;
-		max-width: 56em;
-		background-color: white;
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-</style>
+{#if browserWidth <= 800}
+	<Footer browserWidth={browserWidth} segment={child.segment} />
+{/if}
 
 <script>
 	export default {
-		components: {
-			Nav: '../components/Nav.svelte'
-		}
+	  data() {
+	    return {
+	      brandName: "Ninja Creative Marketing",
+	      browserWidth: 0
+	    };
+	  },
+
+	  oncreate() {
+	    const width = document.body.clientWidth;
+	    this.set({ browserWidth: width });
+	  },
+
+	  components: {
+	    Nav: "../components/Nav.svelte",
+	    Footer: "../components/Footer.svelte"
+	  }
 	};
 </script>

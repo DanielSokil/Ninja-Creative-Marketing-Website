@@ -1,20 +1,76 @@
+::-webkit-scrollbar {
+  /* for Mac OS X support */
+  width: 0;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 /*! Brand Colors */
 .brand-color-white {
-  color: rgba(237, 243, 244, 1);
+  color: #e0ebeb;
+}
+
+.brand-bg-white {
+  background: rgba(224, 235, 235, 1);
+  background: hsla(180, 20%, 90%, 1);
 }
 
 .brand-color-blue {
-  color: rgba(37, 84, 123, 1);
+  color: #265973;
+}
+
+.brand-bg-blue {
+  background: rgba(38, 89, 115, 1);
+  background: hsla(200, 50%, 30%, 1);
 }
 
 .brand-color-blue-light {
-  color: rgba(132, 172, 196, 1);
+  color: #7aa3b8;
+}
+
+.brand-bg-blue-light {
+  background: rgba(122, 163, 184, 1);
+  background: hsla(200, 30%, 60%, 1);
 }
 
 .brand-color-blue-lighter {
-  color: rgba(116, 164, 196, 1);
+  color: #70a7c2;
+}
+
+.brand-bg-blue-lighter {
+  background: rgba(112, 167, 194, 1);
+  background: hsla(200, 40%, 60%, 1);
 }
 
 .brand-color-gray {
-  color: rgba(114, 135, 155, 1);
+  color: #667f99;
+}
+
+.brand-bg-gray {
+  background: rgba(102, 127, 153, 1);
+  background: hsla(210, 20%, 50%, 1);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Comfortaa", cursive;
+}
+
+p,
+a {
+  font-family: "Open Sans", sans-serif;
+}
+
+section {
+  padding: 0 0.4em;
+  margin: 0 auto;
+  padding-bottom: 6rem;
 }

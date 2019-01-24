@@ -2,7 +2,7 @@
 	<title>Best SEO Company - SEO That Actually Works | {brandName}</title>
 </svelte:head>
 
-<header class="Grid brand-bg-blue">
+<header class="Grid brand-bg-blue {browserWidth <= 800 ? 'header-mobile' : ''}">
 	<div id="one" class="Cell {browserWidth <= 800 ? '-12of12' : '-6of12'}">
 		<h2>Content Marketing</h2>
 		<p>Highly experienced content writer with fluency in both British and American English.</p>
@@ -21,25 +21,46 @@
 	</div>
 </header>
 
-<section>
-	<h1>Best SEO Company- No Fake Promises</h1>
-	<p><b>{brandName}, the most trusted SEO Company</b> for growing your business online. We provide creative, innovative and
-		state of the art internet marketing for your business. Best quality work is our first and foremost priority. Our topmost
-		digital marketing strategy ensure search engine rankings for building better and clean online presence. As of right now,
-		we have 11 team members here in Dhaka, Bangladesh. There are many internet marketing firms who still offer packages for
-		ranking 5 or 10 exact match keywords. This is completely wrong and misleading.</p>
-	<p>This is 2019 and we can not just build some backlinks here and there using targeted anchor text and gets it ranked. You
-		can hope and pray but it surely won’t work in any circumstances. Target will always be all relevant key phrases to the
-		products or services. Search Engine Optimization (SEO) should be purely ROI (Return on Investment) focused not just rankings.</p>
+<section class="Grid">
+	<div class="Cell -12of12">
+		<h1 class="brand-color-blue">Best SEO Results for your Money</h1>
+	</div>
+	<div class="Cell {browserWidth <= 800 ? '-12of12' : '-6of12'}">
+		<p>We provide creative, innovative and state of the art internet marketing for your business. Best quality work is our first
+			and foremost priority. Our topmost digital marketing strategy ensures search engine rankings for building a better and
+			clean online presence. As of right now, we have 11 team members here in Dhaka, Bangladesh.</p>
+	</div>
+	<div class="Cell {browserWidth <= 800 ? '-12of12' : '-6of12'} image"><img src="../images/our-services.png" alt="Our Services"></div>
+	{#if browserWidth >= 800}
+	<div class="Cell {browserWidth <= 800 ? '-12of12' : '-6of12'} image"><img src="../images/online-marketing.png" alt="Online Marketing"></div>
+	{/if}
+	<div class="Cell {browserWidth <= 800 ? '-12of12' : '-6of12'}">
+		<p>There are many internet marketing firms who still offer packages for ranking 5 or 10 exact match keywords. This is completely
+			wrong and misleading. This is 2019 and we can not just build some backlinks here and there using targeted anchor text
+			and gets it ranked. You can hope and pray but it surely won’t work in any circumstances. Target will always be all relevant
+			key phrases to the products or services. Search Engine Optimization (SEO) should be purely ROI (Return on Investment)
+			focused not just rankings.</p>
+	</div>
+	{#if browserWidth <= 800}
+	<div class="Cell {browserWidth <= 800 ? '-12of12' : '-6of12'} image"><img src="../images/online-marketing.png" alt="Online Marketing"></div>
+	{/if}
+	<p><b>Let’s get straightforward. We offer quality work and we want quality payment. Many agencies are still offering many
+			attractive packages, but we don’t. Contact us now and get custom pricing.</b></p>
 </section>
 
 <style>
 	header {
-	  height: 90vh;
+		height: 100vh;
+		/* Window Height Minus Nav Height */
+	  height: calc(100vh - 82.47px);
 	  border-left: 1px solid red;
 	  border-right: 1px solid red;
-	  scroll-behavior: smooth;
-	  text-rendering: optimizeSpeed;
+		scroll-behavior: smooth;
+	}
+
+	.header-mobile {
+		/* Window Height Minus (Nav Height + Footer Height) */
+		height: calc(100vh - (82.47px + 60.19px));
 	}
 
 	header div {
@@ -58,12 +79,6 @@
 	  color: #fff;
 	}
 
-	@media (min-width: 800px) {
-	  header p {
-	    max-width: 70%;
-	  }
-	}
-
 	header h2 {
 	  margin: 0;
 	  padding: 0.4em 0.4em 0 0.4em;
@@ -75,13 +90,22 @@
 	  /* background: linear-gradient(180deg, rgba(38, 89, 115, 1), rgba(38, 89, 115, 0.5)); */
 	}
 
+	@media (min-width: 800px) {
+	  header p {
+	    max-width: 70%;
+	  }
+	  header div:nth-child(odd) {
+	    border-right: 1px solid red;
+	  }
+	}
+
 	#one {
 	  background-image: linear-gradient(
 	      rgba(38, 89, 115, 0.4),
 	      rgba(38, 89, 115, 1)
 	    ),
-			url("../images/content-marketing.png");
-			background-position: 80%;
+	    url("../images/content-marketing.png");
+	  background-position: 80%;
 	}
 
 	#two {
@@ -89,8 +113,8 @@
 	      rgba(38, 89, 115, 0.4),
 	      rgba(38, 89, 115, 1)
 	    ),
-			url("../images/advanced-analytics.png");
-			background-position: 60%;
+	    url("../images/advanced-analytics.png");
+	  background-position: 60%;
 	}
 
 	#three {
@@ -98,8 +122,8 @@
 	      rgba(38, 89, 115, 0.4),
 	      rgba(38, 89, 115, 1)
 	    ),
-			url("../images/ppc-management.png");
-			background-position: 60%;
+	    url("../images/ppc-management.png");
+	  background-position: 60%;
 	}
 
 	#four {
@@ -107,11 +131,25 @@
 	      rgba(38, 89, 115, 0.4),
 	      rgba(38, 89, 115, 1)
 	    ),
-			url("../images/social-media-services.png");
-			background-position: 100%;
+	    url("../images/social-media-services.png");
+	  background-position: 100%;
+	}
+
+	section h1 {
+	  margin: 0;
+	  padding: 0.8em 0.2em 0 0.2em;
+	}
+
+	section p {
+	  padding: 0.8em 0.2em 0 0.2em;
+	}
+
+	section img {
+		max-width: 100%;
+		max-height: 300px;
+	}
+
+	section .image {
+		text-align: center;
 	}
 </style>
-
-<script>
-	export default {};
-</script>

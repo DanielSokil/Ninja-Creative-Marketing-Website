@@ -1,4 +1,4 @@
-<nav class="Grid -center -middle {browserWidth <= 800 ? 'mobile' : ''}">
+<nav class="Grid -center -middle {browserWidth <= 800 ? 'mobile' : ''} brand-bg-white">
 	<div class="Cell {browserWidth <= 800 ? '-fill' : '-3of12'} logo">
 		<a href=".">
 			<img src="images/logo.jpg" alt="">
@@ -20,12 +20,13 @@
 	  border-right: 1px solid red;
 		font-weight: 300;
 		z-index: 100;
+		background: rgb(255, 255, 255);
 	}
 
 	.mobile {
 	  position: sticky;
 	  top: 0;
-	  background: white;
+		background: linear-gradient(to right, #ffffff 40%, rgba(224, 235, 235, 1))
 	}
 
 	ul {
@@ -66,7 +67,7 @@
 	  text-decoration: none;
 	  padding: 0.4em 0.6em;
 	  display: block;
-	  font-weight: 700;
+		font-weight: 700;
 	}
 
 	.logo {

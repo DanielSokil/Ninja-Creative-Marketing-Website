@@ -6,18 +6,85 @@
 	<meta name='viewport' content='width=device-width'>
 	<meta name='theme-color' content='#25547b'>
 
+	<link rel="preload" href="/fonts.0aea0f5f3ef94075f2c34ec88d717a01.woff.json" as="fetch">
+	<script>
+		(function (window, document) {
+			'use strict';
+
+			var isModernBrowser = (
+				'querySelector' in document &&
+				'localStorage' in window &&
+				'addEventListener' in window
+			),
+				md5 = '0aea0f5f3ef94075f2c34ec88d717a01',
+				key = 'fonts',
+				cache;
+
+			if (!isModernBrowser) {
+				// Sorry, browser is too old!
+				return;
+			}
+
+			function insertFont(value) {
+				var style = document.createElement('style');
+				style.innerHTML = value;
+				document.head.appendChild(style);
+			}
+
+			// PRE-RENDER
+			try {
+				cache = window.localStorage.getItem(key);
+				if (cache) {
+					cache = JSON.parse(cache);
+					if (cache.md5 == md5) {
+						insertFont(cache.value);
+					} else {
+						// Busting cache when md5 doesn't match
+						window.localStorage.removeItem(key);
+						cache = null;
+					}
+				}
+			} catch (e) {
+				// Most likely LocalStorage disabled, so hopeless...
+				return;
+			}
+
+			// POST-RENDER
+			if (!cache) {
+				window.addEventListener('load', function () {
+					var request = new XMLHttpRequest(),
+						response;
+					request.open('GET', `${key}.${md5}.woff.json`, true);
+					request.onload = function () {
+						if (this.status == 200) {
+							try {
+								response = JSON.parse(this.response);
+								insertFont(response.value);
+								window.localStorage.setItem(key, this.response);
+							} catch (e) {
+								// LocalStorage is probably full
+							}
+						}
+					};
+					request.send();
+				});
+			}
+		})(window, document);
+	</script>
+
 	%sapper.base%
 
-	<link rel="preload" href="https://fonts.googleapis.com/css?family=Comfortaa:300|Open+Sans:400,700|Roboto:500" as="style">
+	<!-- <link rel="preload" href="https://fonts.googleapis.com/css?family=Comfortaa:300|Open+Sans:400,700|Roboto:500" as="style"> -->
 	<link rel="preload" href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css" as="style">
 	<link rel="preload" href="https://cdn.jsdelivr.net/npm/grd/grd.min.css" as="style">
 	<link rel="preload" href="global.css" as="style">
 
-	<link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Comfortaa:300|Open+Sans:400,700|Roboto:500">
+	<!-- <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Comfortaa:300|Open+Sans:400,700|Roboto:500"> -->
 	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css'>
 	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/grd/grd.min.css'>
 	<link rel='stylesheet' href='global.css'>
 	<link rel='manifest' href='manifest.json'>
+
 	<!-- https://stackoverflow.com/questions/13827325/correct-mime-type-for-favicon-ico -->
 	<link rel='icon' type='image/x-icon' href='favicon.ico'>
 
